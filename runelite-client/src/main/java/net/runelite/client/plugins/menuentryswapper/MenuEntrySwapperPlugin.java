@@ -34,6 +34,8 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.inject.Provides;
+
+import java.awt.*;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -734,6 +736,12 @@ public class MenuEntrySwapperPlugin extends Plugin
 		idx = 0;
 		for (MenuEntry entry : menuEntries)
 		{
+			if (config.swapMagicCon() && (entry.getOption().equals("Build") || entry.getOption().equals("Remove"))) {
+				MenuEntry[] newEntries = new MenuEntry[1];
+				newEntries[0] = entry;
+				client.setMenuEntries(newEntries);
+				return;
+			}
 			swapMenuEntry(idx++, entry);
 		}
 	}

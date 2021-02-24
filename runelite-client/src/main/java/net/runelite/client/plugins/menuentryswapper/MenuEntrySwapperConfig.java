@@ -650,4 +650,15 @@ public interface MenuEntrySwapperConfig extends Config
 	{
 		return false;
 	}
+
+	@ConfigItem(
+			keyName = "magicCon",
+			name = "Who gives a shit",
+			description = "Something, something, something",
+			section = itemSection
+	)
+	default boolean swapMagicCon()
+	{
+		return false;
+	}
 }
